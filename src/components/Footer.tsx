@@ -1,95 +1,101 @@
-import { Github, Linkedin, Mail, Twitter, Facebook, MessageCircle, Instagram } from "lucide-react"
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Facebook,
+  MessageCircle,
+  Instagram,
+} from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/Akshay-Bhalala",
       icon: Github,
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/akshay-bhalala-ak2409/",
       icon: Linkedin,
     },
     {
       name: "Facebook",
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=100010470198470",
       icon: Facebook,
     },
     {
       name: "Instagram",
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/akshay_bhalala24",
       icon: Instagram,
     },
     {
       name: "WhatsApp",
-      href: "https://wa.me/15551234567",
+      href: "https://wa.me/919714468107",
       icon: MessageCircle,
     },
     {
       name: "Twitter",
-      href: "https://twitter.com",
+      href: "https://x.com/Akshay_24_",
       icon: Twitter,
     },
-    {
-      name: "Email",
-      href: "mailto:alex.johnson@example.com",
-      icon: Mail,
-    },
-  ]
+  ];
 
   return (
-    <footer className="bg-gradient-to-r from-muted/50 to-muted/30 border-t border-border/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Copyright */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} Alex Johnson. Built with ❤️ using React & Tailwind CSS.
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Crafting digital experiences that make a difference
-            </p>
-          </div>
+    <>
+      <Helmet>
+        <meta name="copyright" content="© Akshay Bhalala" />
+        <meta name="organization" content="Akshay Bhalala" />
+        <meta
+          property="og:see_also"
+          content="https://akshay-bhalala.netlify.app/"
+        />
+      </Helmet>
+      <footer className="bg-gradient-to-r from-muted/50 to-muted/30 border-t border-border/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            {/* Copyright */}
+            <div className="text-center md:text-left">
+              <p className="text-sm text-muted-foreground">
+                Copyright © {currentYear} AKSHAY | All Rights Reserved
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Designing digital solutions that create meaningful impact.
+              </p>
+            </div>
 
-          {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {socialLinks.map((link) => {
-              const Icon = link.icon
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative text-muted-foreground hover:text-primary transition-all duration-300 p-3 hover:bg-primary/10 rounded-xl border border-transparent hover:border-primary/20 hover:shadow-lg"
-                  aria-label={link.name}
-                  title={link.name}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              )
-            })}
+            {/* Social Links */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative text-muted-foreground hover:text-primary transition-all duration-300 p-3 hover:bg-primary/10 rounded-xl border border-transparent hover:border-primary/20 hover:shadow-lg"
+                    aria-label={link.name}
+                  >
+                    <Icon className="h-5 w-5" />
+
+                    {/* Tooltip */}
+                    <span className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black text-white text-xs px-2 py-1 rounded-md pointer-events-none z-10 whitespace-nowrap">
+                      {link.name}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
-        
-        {/* Additional Footer Info */}
-        <div className="mt-8 pt-6 border-t border-border/50 text-center">
-          <p className="text-xs text-muted-foreground italic">
-            "The only way to do great work is to love what you do." - Steve Jobs
-          </p>
-          <div className="mt-3 flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
-            <span>💻 Full-Stack Developer</span>
-            <span>🚀 Tech Enthusiast</span>
-            <span>🌟 Problem Solver</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-  )
-}
+      </footer>
+    </>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# Akshay Bhalala Portfolio
 
-## Project info
+A modern, fast, and SEO-optimized portfolio website for Akshay Bhalala.
 
-**URL**: https://lovable.dev/projects/823655ed-8501-4f61-8723-07b58791ac65
+## Live Site
 
-## How can I edit this code?
+**URL:** [https://akshay-bhalala.netlify.app/](https://akshay-bhalala.netlify.app/)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Tech Stack
+- [Vite](https://vitejs.dev/) (React + TypeScript)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [react-router-dom](https://reactrouter.com/)
+- [react-helmet-async](https://github.com/staylor/react-helmet-async) (SEO)
+- [Netlify](https://www.netlify.com/) (Hosting)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/823655ed-8501-4f61-8723-07b58791ac65) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Local Development
 
-**Use your preferred IDE**
+1. **Clone the repository:**
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+   The app will be available at [http://localhost:5173](http://localhost:5173) (or as shown in your terminal).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🌐 Deployment (Netlify)
 
-Follow these steps:
+1. **Build the project:**
+   ```sh
+   npm run build
+   ```
+2. **Deploy the `dist/` folder to Netlify:**
+   - Drag & drop the `dist/` folder in the Netlify UI, or
+   - Connect your GitHub repo and let Netlify build/deploy automatically.
+3. **Enable SPA routing:**
+   - Make sure you have a `public/_redirects` file with this content:
+     ```
+     /*    /index.html   200
+     ```
+   - This ensures all routes are handled by React Router and your custom 404 page.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🌍 Custom Domain
 
-# Step 3: Install the necessary dependencies.
-npm i
+- You can connect your own domain in Netlify’s site settings.
+- [Netlify Docs: Custom Domains](https://docs.netlify.com/domains-https/custom-domains/)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## ✨ Features
+- Blazing fast load times (Vite + CDN + image preloading)
+- Fully responsive and mobile-friendly
+- SEO optimized (meta tags, Open Graph, Twitter Cards, robots.txt, sitemap)
+- Modern UI with shadcn/ui and Tailwind CSS
+- Custom 404 page
+- Easy to update and extend
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 👤 Author
+**Akshay Bhalala**
+- [LinkedIn](https://www.linkedin.com/in/akshay-bhalala-ak2409/)
+- [GitHub](https://github.com/Akshay-Bhalala)
+- [Portfolio](https://akshay-bhalala.netlify.app/)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/823655ed-8501-4f61-8723-07b58791ac65) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📝 License
+This project is open source and available under the [MIT License](LICENSE).

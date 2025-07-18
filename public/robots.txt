@@ -1,14 +1,9 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+Crawl-delay: 10
+Sitemap: https://akshay-bhalala.netlify.app/sitemap.xml
+
+# Disallow sensitive or irrelevant paths
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
