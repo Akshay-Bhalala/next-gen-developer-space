@@ -74,14 +74,14 @@ const Contact = () => {
               {contactInfo.map((item, index) => {
                 const Icon = item.icon
                 return (
-                  <Card key={index} className="border-0 shadow-sm hover:shadow-card-hover transition-all duration-300">
+                  <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
-                        <div className="p-3 bg-primary/10 rounded-lg">
-                          <Icon className="h-5 w-5 text-primary" />
+                        <div className="p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+                          <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">
                             {item.title}
                           </h3>
                           <a
@@ -125,9 +125,9 @@ const Contact = () => {
             
             <div className="space-y-4">
               {quotes.map((quote, index) => (
-                <Card key={index} className="border-0 shadow-sm hover:shadow-card-hover transition-all duration-300">
+                <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-6">
-                    <blockquote className="text-muted-foreground italic mb-3">
+                    <blockquote className="text-muted-foreground italic mb-3 text-lg leading-relaxed">
                       "{quote.text}"
                     </blockquote>
                     <cite className="text-sm font-medium text-primary not-italic">
@@ -139,17 +139,17 @@ const Contact = () => {
             </div>
 
             {/* Call to Action */}
-            <Card className="mt-8 border-0 shadow-sm bg-primary/5 border-primary/20">
+            <Card className="mt-8 border-0 shadow-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30">
               <CardHeader>
                 <CardTitle className="text-xl text-center">Ready to Collaborate?</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   Whether you have a project in mind, need technical consultation, 
                   or want to discuss potential opportunities, I'd love to hear from you.
                 </p>
-                <div className="text-sm text-muted-foreground">
-                  <p>Response time: Within 24 hours</p>
+                <div className="text-sm text-muted-foreground bg-background/50 rounded-lg p-4 border border-border/50">
+                  <p className="font-medium">Response time: Within 24 hours</p>
                   <p>Time zone: Pacific Standard Time (PST)</p>
                 </div>
               </CardContent>

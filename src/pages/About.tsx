@@ -1,15 +1,31 @@
-import { ExternalLink, Calendar, MapPin, GraduationCap } from "lucide-react"
+import { ExternalLink, Calendar, MapPin, GraduationCap, Code, Database, Cloud, Smartphone, Palette, Cpu, FileCode, Zap } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import project1Image from "@/assets/project-1.jpg"
 import project2Image from "@/assets/project-2.jpg"
+import developerPhoto from "@/assets/developer-photo.jpg"
 
 const About = () => {
   const skills = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Python", "PostgreSQL",
-    "MongoDB", "AWS", "Docker", "Git", "Tailwind CSS", "Next.js"
+    { name: "JavaScript", icon: FileCode },
+    { name: "TypeScript", icon: Code },
+    { name: "React", icon: Code },
+    { name: "Node.js", icon: Cpu },
+    { name: "Python", icon: FileCode },
+    { name: "PostgreSQL", icon: Database },
+    { name: "MongoDB", icon: Database },
+    { name: "AWS", icon: Cloud },
+    { name: "Docker", icon: Cloud },
+    { name: "Git", icon: Code },
+    { name: "Tailwind CSS", icon: Palette },
+    { name: "Next.js", icon: Zap }
   ]
+
+  const getSkillIcon = (skill: any) => {
+    const IconComponent = skill.icon
+    return <IconComponent className="h-4 w-4 text-primary mr-2" />
+  }
 
   const projects = [
     {
@@ -53,29 +69,48 @@ const About = () => {
         {/* Biography Section */}
         <section className="mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-8 text-center">About Me</h1>
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-sm">
-              <CardContent className="p-8">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  I'm a passionate full-stack developer with over 5 years of experience building 
-                  scalable web applications and mobile solutions. My journey began during my 
-                  computer science studies at UC Berkeley, where I fell in love with the endless 
-                  possibilities of software development.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Throughout my career, I've had the privilege of working with startups and 
-                  established companies, helping them transform ideas into successful digital 
-                  products. I specialize in modern JavaScript frameworks, cloud technologies, 
-                  and creating user-centric applications that solve real-world problems.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  When I'm not coding, you can find me contributing to open-source projects, 
-                  mentoring junior developers, or exploring the latest trends in technology. 
-                  I believe in continuous learning and staying ahead of the curve in this 
-                  rapidly evolving field.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              {/* Image Frame */}
+              <div className="order-2 lg:order-1">
+                <div className="relative max-w-md mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl rotate-3"></div>
+                  <div className="relative bg-background border-2 border-primary/20 rounded-2xl p-2 shadow-xl">
+                    <img
+                      src={developerPhoto}
+                      alt="Developer"
+                      className="w-full h-auto rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Biography Content */}
+              <div className="order-1 lg:order-2">
+                <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50">
+                  <CardContent className="p-8">
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      I'm a passionate full-stack developer with over 5 years of experience building 
+                      scalable web applications and mobile solutions. My journey began during my 
+                      computer science studies at UC Berkeley, where I fell in love with the endless 
+                      possibilities of software development.
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      Throughout my career, I've had the privilege of working with startups and 
+                      established companies, helping them transform ideas into successful digital 
+                      products. I specialize in modern JavaScript frameworks, cloud technologies, 
+                      and creating user-centric applications that solve real-world problems.
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      When I'm not coding, you can find me contributing to open-source projects, 
+                      mentoring junior developers, or exploring the latest trends in technology. 
+                      I believe in continuous learning and staying ahead of the curve in this 
+                      rapidly evolving field.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -137,15 +172,16 @@ const About = () => {
             </p>
           </div>
 
-          <Card className="border-0 shadow-sm max-w-4xl mx-auto">
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 max-w-5xl mx-auto">
             <CardContent className="p-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {skills.map((skill) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {skills.map((skill, index) => (
                   <div
-                    key={skill}
-                    className="flex items-center justify-center p-3 bg-muted/50 rounded-lg hover:bg-primary/10 transition-colors"
+                    key={index}
+                    className="flex items-center p-4 bg-muted/30 border border-border/50 rounded-xl hover:bg-primary/10 hover:border-primary/20 transition-all duration-300 hover:shadow-lg"
                   >
-                    <span className="font-medium text-sm">{skill}</span>
+                    {getSkillIcon(skill)}
+                    <span className="font-medium text-sm">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -162,33 +198,42 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {education.map((edu, index) => (
-              <Card key={index} className="border-0 shadow-sm">
-                <CardHeader>
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <GraduationCap className="h-5 w-5 text-primary" />
+              <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/50"></div>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20">
+                        <GraduationCap className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <CardTitle className="text-xl leading-tight mb-2 text-foreground">{edu.degree}</CardTitle>
+                        <p className="text-primary font-semibold text-lg">{edu.institution}</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-lg leading-tight">{edu.degree}</CardTitle>
-                      <p className="text-primary font-medium">{edu.institution}</p>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <div className="p-1.5 bg-muted/50 rounded-lg">
+                          <MapPin className="h-4 w-4" />
+                        </div>
+                        <span className="font-medium">{edu.location}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-muted-foreground">
+                        <div className="p-1.5 bg-muted/50 rounded-lg">
+                          <Calendar className="h-4 w-4" />
+                        </div>
+                        <span className="font-medium">{edu.year}</span>
+                      </div>
+                      <div className="mt-4 p-4 bg-muted/30 rounded-lg border border-border/50">
+                        <p className="text-sm text-muted-foreground leading-relaxed">{edu.details}</p>
+                      </div>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      {edu.location}
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      {edu.year}
-                    </div>
-                    <p className="text-sm text-muted-foreground pt-2">{edu.details}</p>
-                  </div>
-                </CardContent>
+                  </CardContent>
+                </div>
               </Card>
             ))}
           </div>
