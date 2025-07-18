@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, MessageCircle, Quote } from "lucide-react"
+import { Mail, Phone, MapPin, MessageCircle, Quote, Clock, Calendar, Globe, Users, Coffee, Heart } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const Contact = () => {
@@ -8,19 +8,43 @@ const Contact = () => {
       title: "Email",
       value: "alex.johnson@example.com",
       href: "mailto:alex.johnson@example.com",
+      description: "Best way to reach me for business inquiries"
     },
     {
       icon: Phone,
       title: "Phone",
       value: "+1 (555) 123-4567",
       href: "tel:+15551234567",
+      description: "Available Mon-Fri 9AM-6PM PST"
     },
     {
       icon: MapPin,
       title: "Location",
       value: "San Francisco, CA",
       href: "https://maps.google.com/?q=San+Francisco,+CA",
+      description: "Open to remote and on-site opportunities"
     },
+  ]
+
+  const availability = [
+    {
+      icon: Clock,
+      title: "Response Time",
+      value: "Within 24 hours",
+      description: "I typically respond to emails within a business day"
+    },
+    {
+      icon: Calendar,
+      title: "Availability",
+      value: "Open for new projects",
+      description: "Currently accepting freelance and full-time opportunities"
+    },
+    {
+      icon: Globe,
+      title: "Time Zone",
+      value: "Pacific Standard Time",
+      description: "UTC-8 (UTC-7 during daylight saving)"
+    }
   ]
 
   const quotes = [
@@ -56,13 +80,27 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             I'm always open to discussing new opportunities, interesting projects, 
-            or just having a chat about technology and development.
+            collaborating on innovative solutions, or just having a chat about technology and development.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-primary" />
+              <span>Collaboration Ready</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Coffee className="h-4 w-4 text-primary" />
+              <span>Coffee Chat Welcome</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Heart className="h-4 w-4 text-primary" />
+              <span>Passionate About Tech</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {/* Contact Information */}
           <div>
             <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
@@ -75,23 +113,24 @@ const Contact = () => {
                 const Icon = item.icon
                 return (
                   <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-4">
-                        <div className="p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:scale-110 transition-transform duration-300">
-                          <Icon className="h-6 w-6 text-primary" />
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="p-3 sm:p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/20 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-xs sm:text-sm text-muted-foreground uppercase tracking-wide mb-1">
                             {item.title}
                           </h3>
                           <a
                             href={item.href}
                             target={item.href.startsWith('http') ? '_blank' : undefined}
                             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="text-lg font-medium hover:text-primary transition-colors"
+                            className="text-base sm:text-lg font-medium hover:text-primary transition-colors block mb-2 break-words"
                           >
                             {item.value}
                           </a>
+                          <p className="text-xs sm:text-sm text-muted-foreground">{item.description}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -100,20 +139,31 @@ const Contact = () => {
               })}
             </div>
 
-            {/* Additional Info */}
-            <Card className="mt-8 border-0 shadow-sm bg-muted/30">
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-3">Availability</h3>
-                <p className="text-muted-foreground mb-4">
-                  Currently available for freelance projects and full-time opportunities. 
-                  I typically respond to emails within 24 hours.
-                </p>
-                <div className="text-sm">
-                  <p className="font-medium">Preferred Communication:</p>
-                  <p className="text-muted-foreground">Email for project inquiries, LinkedIn for networking</p>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Availability Info */}
+            <div className="mt-8">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                <Clock className="h-5 w-5 text-primary" />
+                Availability & Details
+              </h3>
+              <div className="grid gap-4">
+                {availability.map((item, index) => {
+                  const Icon = item.icon
+                  return (
+                    <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-muted/50 to-muted/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-3">
+                          <Icon className="h-5 w-5 text-primary" />
+                          <div>
+                            <p className="font-medium">{item.title}: <span className="text-primary">{item.value}</span></p>
+                            <p className="text-sm text-muted-foreground">{item.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           {/* Inspirational Quotes */}

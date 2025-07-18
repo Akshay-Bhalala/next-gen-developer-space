@@ -1,4 +1,4 @@
-import { ExternalLink, Calendar, MapPin, GraduationCap, Code, Database, Cloud, Smartphone, Palette, Cpu, FileCode, Zap } from "lucide-react"
+import { ExternalLink, Calendar, MapPin, GraduationCap, Code, Database, Cloud, Smartphone, Palette, Cpu, FileCode, Zap, Globe, Github, Layers, Server, Monitor, Braces, Settings } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -11,15 +11,51 @@ const About = () => {
     { name: "JavaScript", icon: FileCode },
     { name: "TypeScript", icon: Code },
     { name: "React", icon: Code },
-    { name: "Node.js", icon: Cpu },
+    { name: "Next.js", icon: Zap },
+    { name: "Vue.js", icon: Layers },
+    { name: "Angular", icon: Layers },
+    { name: "Node.js", icon: Server },
+    { name: "Express.js", icon: Server },
     { name: "Python", icon: FileCode },
+    { name: "Django", icon: Globe },
+    { name: "Flask", icon: Globe },
+    { name: "PHP", icon: FileCode },
+    { name: "Laravel", icon: Globe },
+    { name: "Java", icon: Code },
+    { name: "Spring Boot", icon: Settings },
+    { name: "C#", icon: Code },
+    { name: ".NET", icon: Settings },
     { name: "PostgreSQL", icon: Database },
+    { name: "MySQL", icon: Database },
     { name: "MongoDB", icon: Database },
+    { name: "Redis", icon: Database },
+    { name: "Firebase", icon: Database },
     { name: "AWS", icon: Cloud },
+    { name: "Azure", icon: Cloud },
+    { name: "Google Cloud", icon: Cloud },
     { name: "Docker", icon: Cloud },
-    { name: "Git", icon: Code },
+    { name: "Kubernetes", icon: Cloud },
+    { name: "Git", icon: Github },
+    { name: "GitHub", icon: Github },
+    { name: "GitLab", icon: Code },
     { name: "Tailwind CSS", icon: Palette },
-    { name: "Next.js", icon: Zap }
+    { name: "Bootstrap", icon: Palette },
+    { name: "SASS/SCSS", icon: Palette },
+    { name: "Material-UI", icon: Palette },
+    { name: "React Native", icon: Smartphone },
+    { name: "Flutter", icon: Smartphone },
+    { name: "Ionic", icon: Smartphone },
+    { name: "Webpack", icon: Settings },
+    { name: "Vite", icon: Zap },
+    { name: "Jest", icon: Settings },
+    { name: "Cypress", icon: Monitor },
+    { name: "GraphQL", icon: Globe },
+    { name: "REST API", icon: Globe },
+    { name: "Microservices", icon: Server },
+    { name: "Linux", icon: Monitor },
+    { name: "Nginx", icon: Server },
+    { name: "Jenkins", icon: Settings },
+    { name: "Terraform", icon: Cloud }
   ]
 
   const getSkillIcon = (skill: any) => {
@@ -71,8 +107,8 @@ const About = () => {
           <h1 className="text-4xl lg:text-5xl font-bold mb-8 text-center">About Me</h1>
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
-              {/* Image Frame */}
-              <div className="order-2 lg:order-1">
+              {/* Image Frame - appears first on mobile, second on desktop */}
+              <div className="order-1 lg:order-2">
                 <div className="relative max-w-md mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl rotate-3"></div>
                   <div className="relative bg-background border-2 border-primary/20 rounded-2xl p-2 shadow-xl">
@@ -85,8 +121,8 @@ const About = () => {
                 </div>
               </div>
               
-              {/* Biography Content */}
-              <div className="order-1 lg:order-2">
+              {/* Biography Content - appears second on mobile, first on desktop */}
+              <div className="order-2 lg:order-1">
                 <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50">
                   <CardContent className="p-8">
                     <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -123,9 +159,9 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden border-0 shadow-sm hover:shadow-card-hover transition-all duration-300">
+              <Card key={index} className="overflow-hidden border-0 shadow-lg bg-gradient-to-br from-card to-card/50 hover:shadow-xl transition-all duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.image}
@@ -133,11 +169,11 @@ const About = () => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                <CardContent className="pt-0">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
@@ -145,13 +181,13 @@ const About = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline" asChild>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button size="sm" variant="outline" className="flex-1" asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         GitHub <ExternalLink className="ml-1 h-3 w-3" />
                       </a>
                     </Button>
-                    <Button size="sm" asChild>
+                    <Button size="sm" className="flex-1" asChild>
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         Live Demo <ExternalLink className="ml-1 h-3 w-3" />
                       </a>
@@ -172,16 +208,16 @@ const About = () => {
             </p>
           </div>
 
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 max-w-5xl mx-auto">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/50 max-w-7xl mx-auto">
+            <CardContent className="p-6 sm:p-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4">
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="flex items-center p-4 bg-muted/30 border border-border/50 rounded-xl hover:bg-primary/10 hover:border-primary/20 transition-all duration-300 hover:shadow-lg"
+                    className="flex items-center p-3 sm:p-4 bg-muted/30 border border-border/50 rounded-xl hover:bg-primary/10 hover:border-primary/20 transition-all duration-300 hover:shadow-lg"
                   >
                     {getSkillIcon(skill)}
-                    <span className="font-medium text-sm">{skill.name}</span>
+                    <span className="font-medium text-xs sm:text-sm truncate">{skill.name}</span>
                   </div>
                 ))}
               </div>
